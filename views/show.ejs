@@ -1,0 +1,41 @@
+<%- include ('partials/header') %>
+
+<div class="ui inverted segment">
+  <div class="ui inverted secondary menu">
+    <a href="/">
+      <button class="ui labeled icon button">
+        <i class="code icon"></i>
+        Home
+      </button>
+    </a>
+  </div>
+</div>
+<div id="container" class="ui container">
+  <div id="items" class="ui items">
+    <div class="item">
+      <div class="image">
+        <img src="<%= blog.image %>" />
+      </div>
+      <div class="content">
+        <a class="header"><%= blog.title %></a>
+        <div class="meta">
+          <span><%= blog.date %></span>
+        </div>
+        <div class="description">
+          <p><%= blog.content %></p>
+        </div>
+        <div class="extra">
+          <nav style="display: inline-flex;">
+            <form action="/blogs/<%=blog._id %>/edit" method="GET">
+              <button class="ui secondary button">Edit</button>
+            </form>
+            <form action="/blogs/<%=blog._id %>?_method=DELETE" method="POST">
+              <button class="ui red button">Delete</button>
+            </form>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <hr />
+  </div>
+</div>
